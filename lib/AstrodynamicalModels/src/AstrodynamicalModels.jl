@@ -19,10 +19,10 @@ $(IMPORTS)
 module AstrodynamicalModels
 
 # Export every model
-export R2BSystem, CR3BSystem, NBSystem, PlanarEntrySystem, AttitudeSystem
+export R2BSystem, CR3BSystem, CR3B_SailSystem, NBSystem, PlanarEntrySystem, AttitudeSystem
 
 # Export every `ODEFunction`
-export R2BFunction, CR3BFunction, NBFunction, PlanarEntryFunction, AttitudeFunction
+export R2BFunction, CR3BFunction, NBFunction, CR3B_SailFunction, PlanarEntryFunction, AttitudeFunction
 
 # Export every array type
 export CartesianState,
@@ -34,13 +34,14 @@ export CartesianState,
     R2BParameters,
     CR3BState,
     CR3BParameters,
+    CR3B_SailParameters,
     AttitudeState,
     AttitudeParameters,
     PlanarEntryState,
     PlanarEntryParameters
 
 # Export every orbit type
-export Orbit, R2BOrbit, CR3BOrbit, CartesianOrbit, KeplerianOrbit
+export Orbit, R2BOrbit, CR3BOrbit, CR3B_SailOrbit, CartesianOrbit, KeplerianOrbit
 
 # Export every method
 export state, parameters, dynamics, system
@@ -592,6 +593,7 @@ const CartesianOrbit = Orbit{<:CartesianState}
 include("R2BP.jl")
 include("Kepler.jl")
 include("CR3BP.jl")
+include("CR3BP_Sail.jl")
 include("NBP.jl")
 include("Entry.jl")
 include("Attitude.jl")
